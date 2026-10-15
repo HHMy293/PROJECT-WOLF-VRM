@@ -1,0 +1,11 @@
+{
+  "result": "passed",
+  "checks": [
+    "2 người + 4 bot rõ nhãn; nút kick không nhầm bot thành host",
+    "Host start qua Next API, hai máy nhận vai riêng và xác nhận",
+    "GET private theo UID, không gửi role của người khác; chặn đọc secret/khách không auth",
+    "Reload trở lại cùng ván và nhân vật",
+    "Trận có bot tới kết quả thật, host-only skip, reveal cuối ván và rematch đồng bộ"
+  ],
+  "scope": "Next API thật + SDK Supabase thật + PostgreSQL PGlite/auth-Phoenix fixture; có time-warp deadline trong DB fixture, không có backdoor trong source; chưa chạy trên Supabase hosted của người dùng"
+}

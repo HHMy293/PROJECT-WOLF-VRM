@@ -1,0 +1,28 @@
+{
+  "result": "passed",
+  "checks": [
+    "Public snapshot không chứa role, action, phiếu; chỉ Sói nhận đồng đội",
+    "Sói hòa không cắn; chặn đồng đội; Tiên Tri riêng; không cứu khi không có nạn nhân",
+    "Bảo Vệ chặn cắn nhưng không chặn Độc; bình dùng đúng một lần",
+    "Bảo Vệ tự bảo vệ được, không lặp mục tiêu đêm trước",
+    "Bình Cứu cứu đúng nạn nhân, không thể dùng lại",
+    "Phiếu kín, chặn tự vote, hòa vote phụ đúng nhóm, phiếu trắng không loại người",
+    "Phiếu phụ tiếp tục hòa thì không loại ai",
+    "Chuỗi Thợ Săn chết/bắn được xử lý trước kiểm tra thắng",
+    "Thợ Săn chết vẫn có lượt bắn, người khác không can thiệp",
+    "Thợ Săn hết giờ không bắn",
+    "Người chết không bỏ phiếu hoặc hành động đêm",
+    "Chỉ host được skip thảo luận, kể cả host đã chết",
+    "Nonce idempotent, từ chối lượt cũ",
+    "Server xác định thắng đúng điều kiện, chỉ reveal tất cả lúc kết thúc",
+    "30 ván có 2 người và bot chạy tới kết quả theo luật",
+    "Đề xuất Sói chỉ phe Sói còn sống thấy, được sửa phiếu trước đóng lượt, không tính đề xuất như phiếu cắn",
+    "Bot Sói theo đề xuất người thật, chờ xác nhận và cùng chọn một mục tiêu",
+    "Sói chết/người ngoài phe không đề xuất hoặc xem lựa chọn mới của bầy",
+    "Ba Sói chọn A/A/B thì cắn A, không yêu cầu đồng thuận toàn bộ",
+    "Đồng hồ nhận vai 45 giây; kỹ năng nhanh/thường đúng thời lượng mới qua chuyển lượt thật",
+    "Host skip/gia hạn ở mọi giai đoạn; +30 giây đồng hồ server, tối đa 120 giây/lượt; nonce không cộng hai lần",
+    "Skip giữ phiếu Sói/vote đã xác nhận, không tạo phát bắn, host chết vẫn điều khiển được",
+    "Không skip hoặc gia hạn ván đã kết thúc"
+  ]
+}

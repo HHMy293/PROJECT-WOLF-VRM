@@ -1,0 +1,16 @@
+{
+  "checks": [
+    "Preset 6 passed",
+    "Preset 7 passed",
+    "Preset 8 passed",
+    "Preset 9 passed",
+    "Preset 10 passed",
+    "Preset 11 passed",
+    "Preset 12 passed",
+    "Custom deck preserved on join",
+    "Reset works",
+    "Invalid totals flagged and save disabled",
+    "12-player configured match starts"
+  ],
+  "result": "passed"
+}

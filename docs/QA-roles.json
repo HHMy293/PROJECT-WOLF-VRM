@@ -1,0 +1,10 @@
+{
+  "checks": [
+    "wolf: passed",
+    "villager: passed",
+    "seer: passed",
+    "witch: passed",
+    "guard: passed",
+    "hunter: passed"
+  ]
+}

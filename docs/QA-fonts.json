@@ -1,0 +1,9 @@
+{
+  "fonts": {
+    "title": "\"Noto Serif\", Georgia, serif",
+    "body": "\"Be Vietnam Pro\", \"Segoe UI\", Arial, sans-serif",
+    "serif": true,
+    "sans": true
+  },
+  "errors": []
+}

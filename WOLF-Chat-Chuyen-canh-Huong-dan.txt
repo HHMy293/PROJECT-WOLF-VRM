@@ -1,0 +1,29 @@
+PROJECT WOLF 0.4.0 — Bản kết hợp chat rộng và chuyển cảnh
+
+Bản vá này gồm luôn yêu cầu chat trước đó, không cần chép hai bản vá riêng.
+
+Thay đổi:
+- Chat laptop rộng 320 px; màn 1001–1280 px dùng 280 px. Khung cao hơn nhẹ.
+- Chữ tin nhắn 11 px, tiêu đề chat 13 px.
+- Ô nhập nhiều dòng, tắt autocomplete để tránh menu lịch sử nhập của trình duyệt. Không lưu bản nháp. Giữ nguyên tin nhắn đã gửi và lịch sử trận.
+- Enter gửi, Shift+Enter xuống dòng.
+- Khi vào đêm: thông báo trăng “MÀN ĐÊM BUÔNG XUỐNG”, số vòng và lời dẫn.
+- Khi bình minh: thông báo mặt trời “BÌNH MINH ĐÃ ĐẾN”, số vòng và lời dẫn.
+- Thông báo tự tắt sau khoảng 2,2 giây; chuyển động giảm nếu trình duyệt bật giảm chuyển động.
+- Mỗi đêm chỉ thông báo một lần, không lặp khi đổi lượt từng vai. Không hiện bình minh giả khi tải lại giữa buổi thảo luận.
+- Thông báo không nhận chuột, không khóa thao tác, không thay đổi thời gian server hoặc luật game. Kết thúc trận sẽ gỡ thông báo ngay.
+
+Cập nhật từ 0.4.0:
+1. Dừng dev bằng Ctrl+C.
+2. Giải nén PROJECT-WOLF-Update-chat-chuyen-canh.zip.
+3. Copy thư mục app và components vào project-wolf chứa package.json. Chọn ghi đè. File components/game-transition.tsx là file mới, cần được copy cùng.
+4. Giữ .env.local, .vercel, .git và các file khác.
+5. Không cần chạy SQL mới; không cần npm ci vì không đổi dependencies.
+6. Chạy từng lệnh:
+   npm run build
+   npx vercel --prod
+7. Đợi Ready, mở domain hiện tại và Ctrl+F5. Mọi người tải lại trang.
+8. Tạo phòng mới để thử: sau nhận vai sẽ có cảnh đêm, sau lượt Phù Thủy sẽ có cảnh bình minh. Đổi lượt trong cùng đêm không phát lại cảnh đêm.
+
+Bản vá dùng với source 0.4.0 đã có chat và migration 003. Nếu chưa cài 0.4.0, dùng gói hoàn chỉnh đã cập nhật và hướng dẫn của bản đầy đủ.
+Chưa deploy trực tiếp vào tài khoản Vercel/Supabase của bạn.

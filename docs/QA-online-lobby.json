@@ -1,0 +1,16 @@
+{
+  "result": "passed",
+  "checks": [
+    "Tạo phòng thật với đúng 1 người, không có bot",
+    "Hai phiên độc lập vào cùng mã, cập nhật qua Phoenix WebSocket",
+    "Ẩn quyền host ở khách; khóa bắt đầu trận chưa có engine",
+    "Sẵn sàng được đồng bộ",
+    "Đổi 12 chỗ, preset đúng và reset sẵn sàng ở cả hai máy",
+    "Reload khôi phục room theo auth, không nhân đôi người chơi",
+    "Mã sai báo lỗi, không sinh phòng ảo",
+    "Kick cập nhật RLS, ngăn vào lại phòng bị kick",
+    "Chủ phòng rời thì chuyển quyền cho người còn lại"
+  ],
+  "notifications": 8,
+  "scope": "SDK Supabase thật, PostgreSQL/RLS PGlite, HTTP/Phoenix fixture nội bộ; chưa kiểm tra Supabase hosted của người dùng"
+}

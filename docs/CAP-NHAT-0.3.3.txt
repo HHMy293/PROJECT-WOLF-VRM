@@ -1,0 +1,49 @@
+PROJECT WOLF 0.3.3 — THÊM THỜI GIAN VÀ ĐIỀU KHIỂN LƯỢT
+
+1. Dừng dev bằng Ctrl+C. Giải nén PROJECT-WOLF-Update-timers-host.zip.
+2. Copy toàn bộ nội dung bên trong vào thư mục project-wolf chứa package.json; chọn ghi đè. Giữ nguyên .env.local và .vercel.
+3. Bạn đã chạy SQL 001/002 và có đủ ba biến môi trường: không cần chạy thêm SQL, không đổi khóa.
+4. Mở terminal tại thư mục project-wolf rồi chạy lần lượt:
+   npm ci
+   npm run build
+   npm run dev
+5. Kiểm tra bằng phòng ONLINE mới với hai thiết bị/cửa sổ độc lập. Không dùng phòng mô phỏng để thử realtime. Ván cũ giữ đồng hồ hiện tại đến lượt tiếp theo.
+
+THỜI GIAN MỚI (nhanh / thường)
+Nhận vai: 45 / 60 giây
+Bảo Vệ: 60 / 90 giây
+Ma Sói: 75 / 120 giây
+Tiên Tri: 60 / 90 giây
+Phù Thủy: 90 / 120 giây
+Thợ Săn: 45 / 60 giây
+Bỏ phiếu: 60 / 90 giây
+Thảo luận: 120 / 300 giây
+Đây là thời gian tối đa. Khi tất cả người cần hành động đã xác nhận, lượt vẫn chuyển sớm.
+
+THANH CHỦ PHÒNG
+Hiện ở mọi giai đoạn có đồng hồ, kể cả nhận vai và lượt kỹ năng. Host đã chết vẫn điều khiển được.
++30 GIÂY: cộng vào đồng hồ server cho toàn phòng. Mỗi lượt cộng tối đa 120 giây; giới hạn reset khi chuyển lượt.
+SKIP / KẾT THÚC THẢO LUẬN: kết thúc giai đoạn hiện tại theo đúng luật. Ban đêm chỉ bỏ qua lượt chức năng hiện tại, không bỏ qua cả đêm.
+Ở lượt nhận vai/kỹ năng/bỏ phiếu/Thợ Săn phải bấm XÁC NHẬN CHUYỂN LƯỢT. Bấm TIẾP TỤC CHỜ để hủy.
+Lựa chọn đã xác nhận được tính; người chưa xác nhận mất lượt. Đề xuất Sói chưa xác nhận không phải phiếu cắn. Không tự chọn mục tiêu thay người chưa thao tác.
+Không điều khiển thời gian sau khi ván đã kết thúc. Nút bị khóa khi đang gửi/mất kết nối.
+Còn 10 giây sẽ nhắc xác nhận nếu bạn đang có lượt và chưa gửi hành động.
+
+CẬP NHẬT INTERNET
+Sau khi kiểm tra local, dừng dev rồi chạy npx vercel --prod tại project-wolf; hoặc commit/push nếu GitHub đã liên kết tự deploy. Chọn một cách.
+Giữ ba biến môi trường trên Vercel. Không đưa .env.local lên Git. Sau deploy mở website, Ctrl+F5 rồi tạo phòng mới.
+
+KIỂM THỬ NHANH
+- Chủ phòng thấy thanh thời gian lúc nhận vai; khách không có thanh này.
+- Host cộng 30 giây: đồng hồ hai máy tăng cùng nhau sau đồng bộ.
+- Lượt Sói: thử SKIP rồi TIẾP TỤC CHỜ, lượt không đổi.
+- Host xác nhận skip khi có người chưa xác nhận: chuyển đúng giai đoạn; không tạo hành động giả.
+- Vai trò vẫn ẩn mặc định; mở để chọn và xác nhận, Esc để ẩn.
+
+ĐỀ XUẤT NÂNG CẤP TIẾP
+1. Màn cài đặt thời gian từng vai, có preset Nhanh / Cân bằng / Người mới, lưu theo phòng.
+2. Hiển thị mất kết nối và cơ chế chuyển chủ phòng rõ ràng.
+3. Nhật ký công khai theo vòng, không làm lộ hành động riêng trong ván.
+4. Scheduler nền, giới hạn tần suất API và dọn phòng hết hạn trước khi tăng số phòng.
+
+Kiểm thử production cục bộ dùng API Next thật, SDK Supabase thật và fixture Auth/PostgreSQL/Realtime. Chưa kiểm thử trực tiếp project Supabase/Vercel của bạn.

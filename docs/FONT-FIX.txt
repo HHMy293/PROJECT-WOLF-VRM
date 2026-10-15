@@ -1,0 +1,11 @@
+PROJECT WOLF — BẢN VÁ FONT TIẾNG VIỆT
+
+1. Tại terminal đang chạy dev, nhấn Ctrl + C để dừng.
+2. Giải nén ZIP này; chép thư mục app và hai file package.json, package-lock.json vào thư mục project-wolf hiện tại. Chọn ghi đè các file cùng tên; giữ nguyên các file khác.
+3. Mở terminal trong project-wolf, chạy:
+   npm ci
+   npm run dev
+4. Trở lại trình duyệt, nhấn Ctrl + F5 để tải lại.
+
+Noto Serif dùng cho tiêu đề, Be Vietnam Pro dùng cho giao diện. Các bộ font đã có ký tự tiếng Việt và được tải từ dự án, không gọi Google Fonts.
+Nếu bạn chạy npm start thay vì dev, chạy npm run build trước npm start.

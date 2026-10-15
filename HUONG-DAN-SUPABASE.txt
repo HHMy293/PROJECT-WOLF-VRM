@@ -1,0 +1,63 @@
+PROJECT WOLF 0.3.0 — TRẬN THẬT VÀ BOT THỬ
+
+Bạn đã kết nối realtime và chạy SQL 001. Thực hiện theo thứ tự:
+
+1. CẬP NHẬT SOURCE
+Dừng npm run dev bằng Ctrl+C. Giải nén PROJECT-WOLF-Update-game-engine.zip rồi copy toàn bộ nội dung vào B:\PROJECT-WOLF-Phase-1-source\project-wolf (nơi có package.json), đồng ý ghi đè.
+Giữ nguyên file .env.local và thư mục .vercel của bạn. Bản đầy đủ có thư mục project-wolf bên trong; bản cập nhật chứa trực tiếp các file nguồn.
+
+2. CẬP NHẬT DATABASE
+Supabase → SQL Editor → New query. Mở WOLF-02-Game-engine.sql, copy TOÀN BỘ nội dung, dán và Run. Cần hiện Success.
+Nếu tạo project mới hoàn toàn, chạy SQL 001 trước rồi SQL 002. Không thay SQL 001 bằng SQL 002.
+
+3. THÊM KHÓA SERVER
+Supabase → Settings → API Keys → Secret keys: lấy Secret key (sb_secret_...). Nếu dùng bảng API keys cũ, có thể dùng service_role.
+Không gửi khóa này vào chat, không đưa lên GitHub. Không dùng publishable key cho biến server.
+Mở .env.local, giữ nguyên hai giá trị đã chạy được, thêm dòng thứ ba:
+
+NEXT_PUBLIC_SUPABASE_URL=https://PROJECT-CUA-BAN.supabase.co
+NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY=PUBLIC-KEY-CUA-BAN
+SUPABASE_SECRET_KEY=SECRET-KEY-CUA-BAN
+
+Thay các giá trị ví dụ bằng giá trị của bạn. Mỗi dòng phải có TÊN_BIẾN=giá_trị. File phải tên .env.local, không phải .env.local.txt.
+SUPABASE_SECRET_KEY tuyệt đối không có tiền tố NEXT_PUBLIC_. Khóa server chỉ được dùng trong API Next.js; quyền này vượt RLS nên phải giữ kín.
+
+4. CHẠY LOCAL
+Trong cửa sổ terminal tại thư mục project-wolf:
+
+npm ci
+npm run dev
+
+Mở http://localhost:3000. Node 24 bạn đang dùng phù hợp. Sau khi đổi .env.local phải dừng và chạy lại dev.
+
+5. THỬ VỚI 2 NGƯỜI + 4 BOT
+Mở trình duyệt thường tạo phòng 6 chỗ. Mở cửa sổ ẩn danh hoặc máy khác, nhập cùng mã phòng.
+Chủ phòng chọn “Thêm bot để đủ chỗ”. Phòng có 2 người thật + 4 bot.
+Hai người thật bấm sẵn sàng; bot tự sẵn sàng. Chủ phòng bắt đầu trận.
+Mỗi người mở lá bài riêng và xác nhận. Bot tự xử lý hành động; bạn làm theo kỹ năng trên màn hình.
+Khi thảo luận xong, chủ phòng chọn kết thúc thảo luận sớm để chuyển sang bỏ phiếu. Chủ phòng đã chết vẫn có quyền này.
+Trận có chia vai, kỹ năng ban đêm, loại người, bỏ phiếu hòa, Thợ Săn, thắng/thua và chơi lại. Reload giữ nhân vật và trận hiện tại.
+Bot là chế độ thử, được ghi rõ trong phòng; không cần tạo tài khoản Supabase cho bot. Bot chọn hành động đơn giản, không trò chuyện hoặc suy luận như người thật. Hai cửa sổ cùng một hồ sơ trình duyệt thường dùng chung danh tính; hãy dùng ẩn danh hoặc thiết bị khác.
+
+6. ĐƯA BẢN MỚI LÊN VERCEL
+Vercel → project-wolf → Settings → Environment Variables: giữ hai biến public đang có, thêm SUPABASE_SECRET_KEY với giá trị thật cho Production (và Preview nếu bạn thử preview).
+Framework Preset chọn Next.js. Nếu từng tự đặt Output Directory là out, bỏ override đó: bản này dùng Next.js API server, không còn static export.
+Trong thư mục project-wolf đã liên kết Vercel:
+
+vercel --prod
+
+Chờ deployment hoàn tất rồi mở website bằng hai thiết bị/phiên độc lập, tạo phòng MỚI và thử lại luồng ở bước 5. Không cần tải .env.local lên Vercel; cấu hình biến trong dashboard.
+Nếu CLI chưa liên kết, dùng vercel link và chọn project-wolf hiện có của bạn.
+
+7. NẾU GẶP LỖI
+Thiếu cấu hình server: kiểm tra biến SUPABASE_SECRET_KEY, đúng loại khóa và restart/redeploy.
+Không tìm thấy bảng/RPC: kiểm tra đã chạy toàn bộ SQL 002 trong đúng Supabase project.
+Không bắt đầu: phải đủ số chỗ, mọi người thật sẵn sàng, tổng bộ thẻ bằng số chỗ.
+Phiên/hành động cũ: tải lại trang; API từ chối hành động sai lượt để tránh gửi lặp.
+Không chia sẻ .env.local, ảnh khóa server hoặc mật khẩu khi nhờ hỗ trợ.
+
+PHẠM VI HIỆN TẠI
+Đã kiểm thử luật, quyền truy cập SQL, API và giao diện production với hai phiên độc lập trên môi trường kiểm thử cục bộ. Chưa chạy kiểm thử trên tài khoản Supabase/Vercel của bạn.
+Deadline nằm trên server. Khi có người online, client đồng bộ mỗi 2 giây; nếu mọi người đóng trang, lần kết nối tiếp theo mới xử lý các deadline đã hết. Chưa có bộ lập lịch nền độc lập.
+Heartbeat 25 giây; sau khoảng 90 giây host không hoạt động, người thật đang hoạt động có thể được chuyển quyền host. Bot không làm chủ phòng.
+Bản beta này chưa có chống spam/rate limit và dọn phòng hết hạn cho lưu lượng công khai lớn.

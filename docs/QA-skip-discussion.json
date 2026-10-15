@@ -1,0 +1,12 @@
+{
+  "checks": [
+    "Host can end discussion early",
+    "Hidden during night",
+    "Voting countdown resets",
+    "Non-host cannot see skip",
+    "Dead host can skip",
+    "Timer expiry still transitions for non-host",
+    "No horizontal overflow at 390px"
+  ],
+  "result": "passed"
+}

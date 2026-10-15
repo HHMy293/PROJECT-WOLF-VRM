@@ -1,0 +1,14 @@
+{
+  "result": "passed",
+  "scope": "Pure engine + local PostgreSQL/PGlite auth shim, not managed Supabase",
+  "checks": [
+    "Secret log not public during play; guard blocks bite but poison still kills with separate causes",
+    "Self save records current-night victim, not resurrection",
+    "First vote/runoff separate; every actor including abstention and unsubmitted has a row",
+    "Hunter chain logged; old state compatible; faction winners include dead players",
+    "SQL 003 idempotent; RLS hides ghost chat from living and all chat from outsiders; no client INSERT/spoof",
+    "Server restricts night; dead chat works; end-game joins all; validated text/stickers, nonce and rate limit",
+    "Per-player 60 messages in 10 minutes quota enforced in SQL, not only UI",
+    "Rematch preserves archived games/chat, rejects new writes to previous game; rerun SQL preserves existing rows"
+  ]
+}

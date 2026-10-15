@@ -1,0 +1,13 @@
+{
+  "result": "passed",
+  "checks": [
+    "2 người + 10 bot rõ nhãn; nút kick không nhầm bot thành host",
+    "Host start qua Next API, hai máy nhận vai riêng và xác nhận",
+    "GET private theo UID, không gửi role của người khác; chặn đọc secret/khách không auth",
+    "Reload trở lại cùng ván và nhân vật",
+    "Bình Cứu tự đánh dấu nạn nhân đêm hiện tại; thẻ nạn nhân chọn được; xác nhận cứu thành công và tiêu hao bình",
+    "Không dùng lại Cứu; Bình Độc chọn thẻ người khác và xác nhận đúng API",
+    "Ảnh nền gốc giải mã được; trận dừng hiệu ứng nền/sương liên tục"
+  ],
+  "scope": "Next production API, Supabase SDK, local Auth/Postgres/Realtime fixture; stage/victim arranged in fixture, no production backdoor; not measured on user hosted infrastructure"
+}

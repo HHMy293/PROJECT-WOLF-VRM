@@ -1,0 +1,17 @@
+{
+  "checks": [
+    "Home 1440px and 390px",
+    "Create room and lobby",
+    "3D reveal",
+    "Seer selection and confirm",
+    "Refresh recovery",
+    "Morning",
+    "Discussion",
+    "Vote runoff and second tie",
+    "Hunter skips shot",
+    "Village and wolf endings",
+    "Reconnect mock",
+    "Game over responsive 390/768/1280/1440px"
+  ],
+  "errors": []
+}

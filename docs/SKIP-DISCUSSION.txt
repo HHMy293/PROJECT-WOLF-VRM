@@ -1,0 +1,13 @@
+PROJECT WOLF — CẬP NHẬT KẾT THÚC THẢO LUẬN
+
+Chỉ chủ phòng thấy nút Kết thúc thảo luận. Bấm để mở bỏ phiếu ngay và bắt đầu countdown bỏ phiếu. Hết thời gian thảo luận vẫn tự chuyển lượt. Chủ phòng đã chết vẫn có thể điều phối thời gian. Phase 1 vẫn mô phỏng trên một thiết bị.
+
+Bản vá này bao gồm cả sửa font tiếng Việt trước đó.
+
+1. Nhấn Ctrl + C tại terminal đang chạy game.
+2. Giải nén ZIP; chép các thư mục app, components, lib và các file package.json, package-lock.json, README.md vào thư mục project-wolf hiện tại. Ghi đè file cùng tên; giữ các file khác.
+3. Trong thư mục project-wolf, chạy npm ci rồi npm run dev.
+4. Trình duyệt: Ctrl + F5.
+5. Mở ván thử, đến Thảo luận: nút Kết thúc thảo luận xuất hiện ở thanh hành động dưới danh sách người chơi.
+
+Nếu dùng npm start, chạy npm run build trước.

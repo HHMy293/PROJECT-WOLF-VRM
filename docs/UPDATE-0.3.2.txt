@@ -1,0 +1,33 @@
+WOLF 0.3.2 — PHỐI HỢP SÓI VÀ BỐ CỤC LAPTOP
+
+Dừng dev. Giải nén PROJECT-WOLF-Update-pack-layout.zip rồi copy nội dung vào thư mục project-wolf chứa package.json, ghi đè. Giữ .env.local và .vercel.
+Đã có SQL 002 và ba biến môi trường: không cần thêm SQL hay đổi khóa.
+
+Chạy:
+npm ci
+npm run build
+npm run dev
+
+Dùng phòng online mới, hai cửa sổ độc lập hoặc hai thiết bị. Bản mô phỏng có banner riêng và nhân vật mẫu, không đồng bộ giữa máy. Dùng “Trở về phòng online” để thử chức năng multiplayer.
+
+Trong lượt Sói:
+1. Mở bảng riêng bằng Xem vai trò và kỹ năng.
+2. Chạm thẻ mục tiêu để gửi đề xuất; đồng đội Sói còn sống thấy ngay sau đồng bộ.
+3. Xem bảng bầy Sói rồi bấm XÁC NHẬN MỤC TIÊU CẮN.
+4. Muốn đổi khi lượt còn mở: chọn lại thẻ, sau đó xác nhận lại. Đề xuất lại sẽ mở phiếu đã chốt.
+5. Chỉ phiếu xác nhận được tính. Người có nhiều phiếu nhất duy nhất bị cắn. Hòa/không có phiếu thì không cắn; không yêu cầu mọi Sói cùng chọn.
+Sói chết và người ngoài phe không nhận bảng đề xuất. Bot Sói phối hợp theo đề xuất của người thật.
+
+Thông tin dài nằm trong vùng riêng có cuộn nội bộ; nút xác nhận/bỏ qua tách riêng. Form tham gia có khoảng cách với nút và bố cục hai cột trên laptop. Kết quả phiếu là mục có thể mở rộng. Không khóa cuộn toàn trang để tránh cắt nội dung khi zoom lớn hoặc màn nhỏ.
+Các luật từng vai được ghi trong bảng kỹ năng và docs/LUAT-WOLF-0.3.2.md.
+
+Deploy source mới bằng npx vercel --prod, hoặc commit/push nếu đã liên kết GitHub tự deploy. Chọn một cách. Không commit .env.local/.vercel. Mở website, Ctrl+F5, tạo phòng mới.
+
+Đã kiểm thử luật và giao diện production cục bộ với Auth/Postgres/Realtime fixture; chưa kiểm thử trực tiếp hạ tầng hosted của bạn. Báo lỗi cần nội dung thông báo, giai đoạn/vai và các bước tái hiện; không gửi khóa.
+
+GỢI Ý ƯU TIÊN SAU BẢN NÀY
+1. Chế độ phòng chơi trực tiếp: giữ nút xem thông tin thay vì mở lâu; có tín hiệu đến lượt giống nhau cho mọi người để giảm lộ vai khi ngồi cạnh.
+2. Tùy chỉnh thời gian từng lượt theo preset; tránh phải đổi code khi nhóm muốn chơi chậm hơn.
+3. Presence hiển thị người mất kết nối và chuyển host rõ ràng.
+4. Lịch sử công khai theo vòng; hành động riêng chỉ xem sau kết thúc nếu luật phòng cho phép.
+5. Scheduler nền, rate limit và dọn phòng hết hạn trước khi mở quy mô lớn.

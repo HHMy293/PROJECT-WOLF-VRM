@@ -1,0 +1,18 @@
+{
+  "result": "passed",
+  "checks": [
+    "Migration 002 chạy lại được",
+    "Bot chỉ do host thêm, không tạo auth user giả, không vượt chỗ",
+    "Bot tự sẵn sàng sau khi chủ phòng đổi thiết lập",
+    "RLS chặn đọc game secrets và chặn commit bằng authenticated",
+    "Start nguyên tử, CAS chặn ghi đè khi cùng version",
+    "Chặn người mới giữa ván, reconnect thành viên hiện có",
+    "Chặn kick giữa ván, host không chuyển cho bot",
+    "Commit kiểm tra membership, rematch không bị commit cũ ghi đè",
+    "Không publish bảng secret",
+    "Bot thêm bổ sung không trùng tên",
+    "Heartbeat chuyển host sau 90 giây mất kết nối",
+    "Commit ván cũ không thay đổi ván mới; skip kiểm tra host tại lúc commit"
+  ],
+  "scope": "PGlite PostgreSQL + Supabase auth shim"
+}

@@ -1,0 +1,17 @@
+PROJECT WOLF — BỘ THẺ MẶC ĐỊNH THEO SỐ NGƯỜI
+
+Trong Luật của ngôi làng → Chỉnh, thay Số người cho ván (6–12) để tự nạp preset đúng số lá thẻ. Sau đó chỉnh số lượng từng vai; Khôi phục mặc định để reset. Tổng thẻ phải đúng số người và Ma Sói ít nhất 1, ít hơn nửa phòng. Phải đủ số người đã chọn mới bắt đầu.
+
+8 người: 2 Sói, 1 Tiên Tri, 1 Phù Thủy, 1 Bảo Vệ, 1 Thợ Săn, 2 Dân Làng.
+12 người: 3 Sói, 1 Tiên Tri, 1 Phù Thủy, 1 Bảo Vệ, 1 Thợ Săn, 5 Dân Làng.
+Người vào/rời không ghi đè bộ thẻ tùy chỉnh. Không giảm số người xuống thấp hơn số người trong phòng; hãy mời bớt người rời trước.
+
+Bản vá gồm cả sửa font và nút Kết thúc thảo luận của chủ phòng.
+
+1. Ctrl + C để dừng game.
+2. Giải nén, chép các thư mục app, components, lib, types và các file package.json, package-lock.json, README.md vào project-wolf. Ghi đè file cùng tên, giữ các file khác.
+3. npm ci
+4. npm run dev
+5. Ctrl + F5 trên trình duyệt.
+
+Nếu dùng npm start, chạy npm run build trước.

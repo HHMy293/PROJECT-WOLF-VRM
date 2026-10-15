@@ -1,0 +1,24 @@
+WOLF 0.3.1 — RIÊNG TƯ, LAPTOP VÀ ĐỒNG BỘ
+
+1. Dừng dev bằng Ctrl+C. Giải nén PROJECT-WOLF-Update-privacy-laptop.zip và copy nội dung vào thư mục project-wolf chứa package.json, ghi đè. Giữ nguyên .env.local và .vercel.
+2. Đã chạy SQL 002 và cấu hình ba biến môi trường: không cần thêm SQL hay đổi khóa.
+3. Chạy tại thư mục project-wolf:
+npm ci
+npm run build
+npm run dev
+4. Thử hai phiên/thiết bị độc lập, tạo phòng mới, thêm bot và bắt đầu.
+5. Deploy source mới bằng npx vercel --prod; nếu đã liên kết GitHub tự deploy thì commit/push và kiểm tra đúng commit mới, chọn một cách. Không commit .env.local hoặc .vercel.
+6. Mở website, Ctrl+F5 và thử với bạn bè.
+
+Nút Xem vai trò và kỹ năng: bấm mở, bấm lần nữa ẩn. Bản online tự ẩn khi đổi lượt, rời cửa sổ hoặc Esc. Bình Độc cần chọn bình trước rồi chọn mục tiêu. Bình Cứu dùng đúng người bị cắn. Chưa đến lượt/đã xác nhận thì thẻ bị khóa đúng luật.
+Chọn thẻ chưa gửi hành động: cần bấm xác nhận và đợi server. Nếu mạng chậm, bấm Đồng bộ lại để kiểm tra đã ghi nhận chưa. Không tự gửi lại khi chưa rõ kết quả.
+Lượt đêm quick: Bảo Vệ 20s, Sói 25s, Tiên Tri 20s, Phù Thủy 30s; classic gấp đôi. Đủ hành động vẫn chuyển sớm. Thử ở trận mới.
+Bố cục thu gọn cho laptop; bảng kỹ năng dài cuộn nội bộ để không cắt nút. Mobile/zoom lớn vẫn có thể cuộn.
+
+Đã kiểm thử luật và production cục bộ: hai phiên Auth/Postgres/Realtime fixture, ẩn/hiện, Esc, chọn thẻ/gửi phiếu, reload, skip, winner/rematch. Chưa kiểm thử trực tiếp dự án hosted của bạn. Nếu lỗi chỉ xảy ra online, gửi nội dung lỗi và bước tái hiện, không gửi khóa.
+
+ĐỀ XUẤT TIẾP THEO
+- Nhãn người mất kết nối và đếm ngược chuyển host.
+- Chủ phòng đặt thời gian từng lượt và lưu preset.
+- Lịch sử công khai theo vòng, không lộ kỹ năng riêng.
+- Scheduler nền, chống spam và dọn phòng hết hạn trước khi mở quy mô lớn.

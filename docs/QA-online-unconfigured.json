@@ -1,0 +1,8 @@
+{
+  "result": "passed",
+  "checks": [
+    "Production thiếu cấu hình báo lỗi, không tạo phòng mô phỏng",
+    "Demo chỉ mở khi chọn nút riêng, có banner và quay lại online",
+    "Bundle production không chứa URL/key fixture"
+  ]
+}

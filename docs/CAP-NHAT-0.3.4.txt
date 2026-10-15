@@ -1,0 +1,22 @@
+WOLF 0.3.4 — GIAO DIỆN PHÙ THỦY VÀ GIẢM TẢI TRONG TRẬN
+
+Dừng dev bằng Ctrl+C. Giải nén PROJECT-WOLF-Update-witch-smooth.zip; copy toàn bộ nội dung vào project-wolf chứa package.json, chọn ghi đè. Giữ .env.local và .vercel.
+Chạy lần lượt npm ci, npm run build, npm run dev. Bạn đã chạy SQL 001/002 thì không có SQL mới và không đổi khóa.
+Sau khi thử local: npx vercel --prod hoặc commit/push nếu GitHub đã liên kết tự deploy. Chọn một cách.
+
+PHÙ THỦY
+Trong đêm đang diễn ra, Sói chọn nạn nhân trước lượt Phù Thủy. Người đó chưa bị công bố chết cho tới bình minh.
+Bình Cứu: bấm bình để tự đánh dấu đúng nạn nhân, rồi bấm XÁC NHẬN CỨU. Có thể bấm lại thẻ nạn nhân, không chọn người khác. Được cứu bản thân nếu chính bạn bị cắn. Không hồi sinh người đã chết từ đêm trước.
+Bình Độc: bấm bình, chọn người còn sống khác, bấm XÁC NHẬN DÙNG ĐỘC.
+Mỗi bình dùng đúng một lần cả ván, tối đa một bình mỗi đêm. Không có người bị cắn hoặc đã dùng Cứu thì bình Cứu bị khóa. Bảo Vệ không chặn độc.
+
+GIẢM TẢI
+Đồng hồ cập nhật một lần/giây thay vì bốn lần/giây. Snapshot cùng revision không thay lại toàn bộ dữ liệu ván. Các thẻ roster không đo/animation layout liên tục. Dừng chuyển động ảnh nền, sương và hạt trong trận; trang chủ vẫn giữ hiệu ứng, ảnh gốc vẫn giữ nguyên. Các hiệu ứng lá bài và chuyển cảnh có ý nghĩa vẫn được giữ.
+Không thay tốc độ polling/server progression trong bản này, giữ cơ chế realtime hiện có. Chưa đo FPS hay độ trễ trên laptop/Supabase/Vercel của bạn, không bảo đảm mọi lag mạng đều hết.
+
+THẺ HIỆN CÓ
+6 loại: Ma Sói, Dân Làng, Tiên Tri, Phù Thủy, Bảo Vệ, Thợ Săn. Có 5 vai có kỹ năng và Dân Làng không có kỹ năng đêm. Số bản sao từng loại tùy bộ thẻ phòng.
+Chưa thêm vai mới trong 0.3.4. Đề xuất tiếp: Thần Tình Yêu (ghép đôi, xử lý chết cùng và điều kiện thắng) và Già Làng (chịu được lần cắn đầu, cần chốt ảnh hưởng khi bị làng loại). Vai mới cần cả luật server, bộ thẻ, quyền riêng tư, bot và kiểm thử.
+
+KIỂM TRA
+Tạo phòng online mới. Thử Cứu/Độc trong lượt Phù Thủy bằng hai phiên độc lập; tên lượt vẫn hiện khi che vai trò; skip/+30 giây vẫn giữ; nền ngôi làng không đổi. Nếu còn lag, ghi rõ local hay website internet, thao tác chậm khoảng bao nhiêu giây, có hiện Đang gửi/Đang kết nối lại hay chỉ animation giật. Không gửi khóa bí mật.

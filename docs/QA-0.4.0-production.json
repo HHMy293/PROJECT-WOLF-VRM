@@ -1,0 +1,15 @@
+{
+  "result": "passed",
+  "scope": "Next production locally + PGlite PostgreSQL/RLS + Phoenix fixture; not real managed Supabase/Vercel",
+  "chatDeliveryMs": 250,
+  "checks": [
+    "12-player lobby fits 1366x668; QR modal does not push controls",
+    "Hidden reveal card contains no role/phe DOM text; shared mute from lobby to game",
+    "Night instructions tell player to open skills; save selects victim; privacy keeps stage visible",
+    "Two separate auth/browser contexts receive text and sticker through realtime; HTML displayed as text",
+    "Mute footer updates header, persists reload; match 1366x768 fits; mobile no horizontal overflow",
+    "Dead-channel message visible to dead sender, not living browser",
+    "End-game reveals logs and ghost chat; highlights faction winners; round filter and JSON export",
+    "Rematch unmounts chat and keeps saved messages"
+  ]
+}

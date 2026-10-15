@@ -1,0 +1,1317 @@
+# 🐺 PROJECT WOLF — MASTER PROMPT
+
+Bạn đang xây dựng một dự án web game multiplayer có tên tạm thời là **PROJECT WOLF**.
+
+Hãy coi nội dung dưới đây là **đặc tả gốc của dự án**. Không tự ý thay đổi các quyết định gameplay quan trọng. Nếu cần cải tiến UI/UX hoặc kỹ thuật, có thể chủ động đề xuất và thực hiện miễn không phá vỡ gameplay đã mô tả.
+
+# I. MỤC TIÊU SẢN PHẨM
+
+Xây dựng một web game **Ma Sói trực tuyến bằng tiếng Việt**, có thể chơi trực tiếp trên trình duyệt.
+
+Đối tượng sử dụng chính là nhóm bạn/đồng nghiệp ngồi tại văn phòng, mỗi người sử dụng laptop hoặc PC riêng và truy cập cùng một website.
+
+Không yêu cầu cài đặt ứng dụng.
+
+Không bắt buộc đăng ký tài khoản.
+
+Luồng cơ bản:
+
+Trang chủ → Tạo phòng/Tham gia phòng → Lobby → Chia vai → Đêm → Buổi sáng → Thảo luận → Bỏ phiếu → Loại người chơi → Kiểm tra thắng/thua → Vòng tiếp theo → Kết thúc.
+
+Website phải mang cảm giác của **một game online hoàn chỉnh**, không được giống dashboard quản trị hoặc project CRUD sinh viên.
+
+---
+
+# II. NGÔN NGỮ
+
+Toàn bộ nội dung người dùng nhìn thấy phải bằng **tiếng Việt**.
+
+Bao gồm:
+
+- nút bấm;
+- thông báo;
+- trạng thái game;
+- tên vai trò;
+- lỗi;
+- tooltip;
+- hướng dẫn;
+- thiết lập;
+- màn hình chiến thắng;
+- màn hình reconnect.
+
+Code, biến, interface, type, database field và comment kỹ thuật có thể sử dụng tiếng Anh.
+
+---
+
+# III. DESIGN DIRECTION
+
+Phong cách:
+
+**Dark Fantasy hiện đại — Ngôi làng dưới ánh trăng.**
+
+Cảm giác cần đạt:
+
+- bí ẩn;
+- căng thẳng;
+- điện ảnh;
+- đẹp;
+- cao cấp;
+- hiện đại;
+- dễ sử dụng;
+- không quá kinh dị;
+- không máu me;
+- không làm giao diện quá tối đến mức khó đọc.
+
+Màu sắc định hướng:
+
+- xanh đen;
+- đen than;
+- ánh trăng bạc;
+- tím/xanh lạnh;
+- đỏ rượu cho Ma Sói/nguy hiểm;
+- vàng ấm cho phe Làng/bình minh.
+
+Có thể sử dụng glassmorphism nhẹ, glow, shadow, gradient và particle nhưng phải tinh tế.
+
+Ưu tiên trải nghiệm:
+
+**Laptop/Desktop ≥ 1280px.**
+
+Tuy nhiên phải responsive tốt cho tablet và mobile.
+
+---
+
+# IV. TAGLINE
+
+Trang chủ sử dụng câu:
+
+**“Trong đêm đen dài vô tận...”**
+
+và nổi bật:
+
+# AI SẼ SỐNG SÓT ĐẾN BÌNH MINH?
+
+Giữ nguyên chữ **AI** như trên.
+
+Đây là chủ ý chơi chữ giữa từ “ai” trong tiếng Việt và “AI”.
+
+---
+
+# V. ANIMATION
+
+Animation là thành phần quan trọng của sản phẩm.
+
+Yêu cầu:
+
+**NHIỀU ANIMATION**, nhưng phải mượt, có mục đích và chuyên nghiệp.
+
+Có thể sử dụng Motion/Framer Motion kết hợp CSS.
+
+Cần có animation cho:
+
+- chuyển ngày ↔ đêm;
+- mặt trăng;
+- mây;
+- sương;
+- particle;
+- background;
+- card hover;
+- button hover/click;
+- player join;
+- player disconnect;
+- role reveal;
+- card flip 3D;
+- role glow;
+- countdown;
+- vote;
+- death reveal;
+- elimination;
+- hunter shot;
+- game over;
+- victory;
+- wolf victory;
+- villager victory;
+- modal;
+- toast;
+- loading;
+- reconnect.
+
+Không animation chỉ để trang trí vô nghĩa.
+
+Ưu tiên hiệu năng tốt trên laptop văn phòng.
+
+Tôn trọng `prefers-reduced-motion`.
+
+---
+
+# VI. ICON & ART DIRECTION
+
+Giao diện phải có icon rõ ràng, đồng nhất và chuyên nghiệp.
+
+Có thể sử dụng:
+
+**Lucide Icons**
+
+cho UI thông thường.
+
+Các role cần card/icon/artwork riêng:
+
+🐺 Ma Sói  
+👨‍🌾 Dân Làng  
+🔮 Tiên Tri  
+🧪 Phù Thủy  
+🛡️ Bảo Vệ  
+🏹 Thợ Săn
+
+Không phụ thuộc hoàn toàn vào emoji trong phiên bản hoàn thiện.
+
+Emoji có thể được dùng làm placeholder trong prototype.
+
+---
+
+# VII. GAMEPLAY V1
+
+V1 hỗ trợ:
+
+**6–12 người chơi.**
+
+Preset role đề xuất:
+
+6 người:
+- 2 Ma Sói
+- 1 Tiên Tri
+- 1 Phù Thủy
+- 2 Dân Làng
+
+7 người:
+- 2 Ma Sói
+- 1 Tiên Tri
+- 1 Phù Thủy
+- 1 Bảo Vệ
+- 2 Dân Làng
+
+8 người:
+- 2 Ma Sói
+- 1 Tiên Tri
+- 1 Phù Thủy
+- 1 Bảo Vệ
+- 1 Thợ Săn
+- 2 Dân Làng
+
+9 người:
+- 2 Ma Sói
+- 1 Tiên Tri
+- 1 Phù Thủy
+- 1 Bảo Vệ
+- 1 Thợ Săn
+- 3 Dân Làng
+
+10 người:
+- 3 Ma Sói
+- 1 Tiên Tri
+- 1 Phù Thủy
+- 1 Bảo Vệ
+- 1 Thợ Săn
+- 3 Dân Làng
+
+11 người:
+- 3 Ma Sói
+- 1 Tiên Tri
+- 1 Phù Thủy
+- 1 Bảo Vệ
+- 1 Thợ Săn
+- 4 Dân Làng
+
+12 người:
+- 3 Ma Sói
+- 1 Tiên Tri
+- 1 Phù Thủy
+- 1 Bảo Vệ
+- 1 Thợ Săn
+- 5 Dân Làng
+
+Host được chỉnh role trước trận.
+
+---
+
+# VIII. ĐIỀU KIỆN CHIẾN THẮNG
+
+## Phe Làng
+
+Thắng khi toàn bộ Ma Sói đã bị loại.
+
+## Phe Sói
+
+Thắng khi:
+
+**Số Ma Sói còn sống ≥ số người phe Làng còn sống.**
+
+Server phải là nơi xác định winner.
+
+Client không được tự quyết định.
+
+---
+
+# IX. ROLE
+
+## 🐺 MA SÓI
+
+- Biết những Ma Sói khác.
+- Mỗi đêm chọn một người còn sống để cắn.
+- Không chọn bản thân.
+- Không chọn Sói đồng đội.
+- Sói chết không được hành động.
+
+Nếu nhiều Sói chọn khác nhau:
+
+Mục tiêu có nhiều phiếu Sói nhất bị chọn.
+
+Nếu hòa → không ai bị Sói cắn.
+
+---
+
+## 🔮 TIÊN TRI
+
+Mỗi đêm chọn một người còn sống.
+
+Server trả về:
+
+**MA SÓI**
+
+hoặc:
+
+**KHÔNG PHẢI MA SÓI**
+
+Không được soi chính mình.
+
+---
+
+## 🧪 PHÙ THỦY
+
+Có:
+
+- 1 bình Cứu;
+- 1 bình Độc.
+
+Mỗi bình chỉ được sử dụng một lần trong toàn bộ ván.
+
+Phù Thủy biết người đang bị Sói cắn.
+
+Có thể cứu người đó.
+
+Có thể dùng độc giết một người khác.
+
+V1 không cho sử dụng cả hai bình trong cùng một đêm.
+
+---
+
+## 🛡️ BẢO VỆ
+
+Mỗi đêm chọn một người để bảo vệ.
+
+Có thể bảo vệ bản thân.
+
+Không được bảo vệ cùng một người trong hai đêm liên tiếp.
+
+Nếu người được bảo vệ bị Sói cắn → sống.
+
+---
+
+## 🏹 THỢ SĂN
+
+Khi chết được quyền chọn một người còn sống chết cùng.
+
+Có:
+
+- countdown;
+- nút chọn mục tiêu;
+- nút **Không bắn**.
+
+Nếu hết thời gian mà chưa chọn → không bắn.
+
+---
+
+## 👨‍🌾 DÂN LÀNG
+
+Không có kỹ năng ban đêm.
+
+Tham gia:
+
+- suy luận;
+- thảo luận;
+- bỏ phiếu.
+
+---
+
+# X. GAME STATE MACHINE
+
+Game phải hoạt động theo state machine.
+
+Các phase:
+
+`waiting`
+
+↓
+
+`role_reveal`
+
+↓
+
+`night`
+
+↓
+
+`morning`
+
+↓
+
+`discussion`
+
+↓
+
+`voting`
+
+↓
+
+`vote_result`
+
+↓
+
+`hunter_action` nếu cần
+
+↓
+
+`win_check`
+
+↓
+
+`night`
+
+hoặc
+
+↓
+
+`game_over`
+
+Server là nguồn sự thật duy nhất về phase hiện tại.
+
+---
+
+# XI. BAN ĐÊM
+
+Thứ tự logic:
+
+1. Bảo Vệ
+2. Ma Sói
+3. Tiên Tri
+4. Phù Thủy
+5. Server xử lý kết quả
+
+UI của từng người khác nhau theo role.
+
+Người không có hành động thấy màn hình chờ:
+
+**“Hãy ngủ thật ngon... nếu bạn có thể.”**
+
+và:
+
+**“Những thế lực trong màn đêm đang hành động.”**
+
+Không được gửi dữ liệu role/action bí mật của người khác xuống browser.
+
+---
+
+# XII. BUỔI SÁNG
+
+Có transition:
+
+🌙 → bình minh → ☀️
+
+Sau đó công bố kết quả đêm.
+
+Ví dụ:
+
+**“Đêm qua...”**
+
+**“Trang đã chết.”**
+
+Hoặc:
+
+**“Một đêm bình yên.”**
+
+**“Không có ai chết đêm qua.”**
+
+Mặc định không tiết lộ role người chết.
+
+Host có setting:
+
+**Hiện vai trò khi chết: Bật/Tắt**
+
+---
+
+# XIII. THẢO LUẬN
+
+Người chơi nói chuyện trực tiếp ngoài đời.
+
+Không cần:
+
+- voice chat;
+- video call.
+
+Website hiển thị:
+
+- countdown;
+- danh sách người sống;
+- người chết;
+- trạng thái game;
+- nút bỏ phiếu khi tới thời điểm.
+
+---
+
+# XIV. VOTE
+
+Chỉ người còn sống được vote.
+
+Không được vote bản thân.
+
+Trong quá trình vote:
+
+KHÔNG hiển thị người khác đang vote ai.
+
+Có thể hiển thị:
+
+- Steven đã bỏ phiếu ✓
+- Minh đang chọn...
+- Trang đã bỏ phiếu ✓
+
+Sau khi đóng vote mới công bố kết quả.
+
+Người nhiều phiếu nhất bị loại.
+
+Nếu hòa:
+
+→ vote phụ giữa những người hòa.
+
+Nếu vote phụ vẫn hòa:
+
+→ không ai bị loại.
+
+---
+
+# XV. NGƯỜI CHẾT
+
+Người chết chuyển sang:
+
+**Spectator Mode**
+
+Có thể tiếp tục theo dõi game.
+
+Không được:
+
+- vote;
+- sử dụng skill;
+- xem role bí mật của người sống.
+
+---
+
+# XVI. HOST
+
+Host vẫn là người chơi.
+
+Host không phải quản trò.
+
+Trước trận Host được:
+
+- chỉnh cấu hình;
+- chọn chế độ;
+- kick người chơi;
+- Start game.
+
+Trong trận Host không được:
+
+- xem role người khác;
+- sửa kết quả;
+- giết người;
+- thay đổi vote;
+- can thiệp game engine.
+
+Nếu Host disconnect lâu hoặc rời phòng:
+
+→ chuyển Host cho một người chơi online khác theo rule ổn định.
+
+---
+
+# XVII. GAME MODE
+
+V1 có:
+
+## ⚡ NHANH
+
+Mục tiêu:
+
+10–20 phút.
+
+Đề xuất:
+
+- Night: 30 giây
+- Discussion: 2 phút
+- Vote: 30 giây
+- Hunter: 20 giây
+
+Đây là mode mặc định.
+
+## 🌙 CỔ ĐIỂN
+
+Mục tiêu:
+
+30–60 phút.
+
+Đề xuất:
+
+- Night: 60 giây
+- Discussion: 5 phút
+- Vote: 60 giây
+- Hunter: 30 giây
+
+Kiến trúc phải cho phép sau này thêm:
+
+**Office Mode**
+
+nhưng KHÔNG cần implement Office Mode trong V1.
+
+---
+
+# XVIII. HOME PAGE
+
+Trang chủ phải gây ấn tượng ngay lập tức.
+
+Có:
+
+🐺 PROJECT WOLF
+
+Tagline:
+
+**Trong đêm đen dài vô tận...**
+
+# AI SẼ SỐNG SÓT ĐẾN BÌNH MINH?
+
+Subtext:
+
+**Ma Sói trực tuyến • Không cần cài đặt**
+
+CTA chính:
+
+**＋ TẠO PHÒNG**
+
+CTA phụ:
+
+**🔑 NHẬP MÃ PHÒNG**
+
+Thông tin nhỏ:
+
+**👥 6–12 người • ⚡ Chơi ngay trên trình duyệt**
+
+Background là ngôi làng/mặt trăng theo phong cách Dark Fantasy.
+
+Có chuyển động môi trường nhẹ.
+
+---
+
+# XIX. TẠO PHÒNG
+
+Form:
+
+Tên của bạn.
+
+Chọn:
+
+⚡ NHANH  
+10–20 phút  
+Đề xuất
+
+hoặc:
+
+🌙 CỔ ĐIỂN  
+30–60 phút
+
+CTA:
+
+**TẠO PHÒNG**
+
+---
+
+# XX. LOBBY
+
+Hiển thị:
+
+- mã phòng;
+- danh sách player;
+- Host;
+- trạng thái kết nối;
+- số người;
+- nút copy link;
+- QR;
+- settings;
+- Start.
+
+Ví dụ storytelling khi player join:
+
+**“Minh vừa bước vào ngôi làng...”**
+
+---
+
+# XXI. ROLE REVEAL
+
+Không hiển thị role ngay.
+
+Ban đầu card úp:
+
+**NHẤN ĐỂ XEM**
+
+Khi click:
+
+→ animation 3D flip.
+
+→ reveal role.
+
+→ artwork.
+
+→ tên role.
+
+→ phe.
+
+→ mô tả kỹ năng.
+
+→ animation/glow phù hợp.
+
+Ví dụ Ma Sói:
+
+**MA SÓI**
+
+**PHE MA SÓI**
+
+**Hãy săn dân làng trong màn đêm.**
+
+Nếu là Sói → hiển thị Sói đồng đội.
+
+---
+
+# XXII. NIGHT UI
+
+Có:
+
+- background ban đêm;
+- mặt trăng;
+- mây;
+- sương;
+- countdown;
+- player cards;
+- role action;
+- confirm button;
+- trạng thái chờ.
+
+Ví dụ:
+
+**ĐÊM THỨ 2**
+
+**Ma Sói — Hãy chọn con mồi đêm nay.**
+
+---
+
+# XXIII. MORNING UI
+
+Animation chuyển ngày/đêm.
+
+Death reveal phải có cảm giác điện ảnh.
+
+Ví dụ:
+
+**ĐÊM QUA...**
+
+↓
+
+animation
+
+↓
+
+**TRANG ĐÃ CHẾT**
+
+Nếu không ai chết:
+
+**MỘT ĐÊM BÌNH YÊN**
+
+**Không có ai chết đêm qua.**
+
+---
+
+# XXIV. VOTING UI
+
+Tiêu đề:
+
+# AI LÀ MA SÓI?
+
+Subtext:
+
+**Chọn người bạn nghi ngờ nhất.**
+
+Sử dụng Player Card thay vì radio button đơn giản.
+
+Khi chọn:
+
+- card glow;
+- animation;
+- xác nhận.
+
+CTA:
+
+**XÁC NHẬN PHIẾU**
+
+---
+
+# XXV. VOTE RESULT
+
+Có animation reveal kết quả.
+
+Ví dụ:
+
+Steven ██ 2  
+Minh █ 1  
+Tuấn █████ 5
+
+Sau đó:
+
+**TUẤN ĐÃ BỊ DÂN LÀNG LOẠI**
+
+Nếu setting cho phép reveal role:
+
+→ card flip.
+
+→ reveal role.
+
+Nếu Dân:
+
+**“Các bạn vừa kết án một người vô tội...”**
+
+Nếu Sói:
+
+có animation/âm thanh tương ứng.
+
+---
+
+# XXVI. GAME OVER
+
+Nếu phe Làng thắng:
+
+**BÌNH MINH ĐÃ ĐẾN**
+
+# 🏆 PHE LÀNG CHIẾN THẮNG
+
+Nếu Sói thắng:
+
+# MA SÓI ĐÃ CHIẾM NGÔI LÀNG
+
+Reveal toàn bộ role.
+
+Có:
+
+**🔄 CHƠI VÁN MỚI**
+
+**🚪 RỜI PHÒNG**
+
+Có victory animation.
+
+---
+
+# XXVII. GAME STATUS BAR
+
+Trong trận luôn có thanh trạng thái nhỏ:
+
+Ví dụ:
+
+**🌙 ĐÊM 2 │ 👥 6/8 còn sống │ ⏱ 00:23**
+
+Không chiếm quá nhiều diện tích.
+
+---
+
+# XXVIII. SOUND
+
+Game hỗ trợ:
+
+- background music;
+- sound effect;
+- mute.
+
+Vì sử dụng trong văn phòng:
+
+Mặc định:
+
+**Nhạc nền OFF**
+
+**Hiệu ứng ON**
+
+Hiệu ứng có thể gồm:
+
+- card flip;
+- wolf howl;
+- countdown;
+- vote;
+- death;
+- morning;
+- victory.
+
+Có nút mute nhanh.
+
+---
+
+# XXIX. RECONNECT
+
+Refresh trang không được làm mất nhân vật.
+
+Nếu player F5 hoặc mất mạng:
+
+hiện:
+
+**MẤT KẾT NỐI**
+
+**Đang kết nối lại...**
+
+Khi reconnect:
+
+server xác định lại:
+
+- player;
+- room;
+- game;
+- role;
+- alive/dead;
+- current phase;
+- action state.
+
+Sau đó đưa người chơi trở lại đúng màn hình.
+
+Người khác có thể thấy trạng thái:
+
+**⚠️ Mất kết nối**
+
+nhưng không tiết lộ thông tin bí mật.
+
+---
+
+# XXX. TECH STACK
+
+Sử dụng:
+
+- Next.js
+- React
+- TypeScript
+- Tailwind CSS
+- shadcn/ui
+- Lucide Icons
+- Motion/Framer Motion
+- Supabase
+- PostgreSQL
+- Supabase Realtime
+- Vercel
+
+Ưu tiên phiên bản stable tương thích với nhau.
+
+---
+
+# XXXI. DATABASE
+
+Thiết kế tối thiểu:
+
+## rooms
+
+- id
+- room_code
+- host_player_id
+- status
+- game_mode
+- speed_mode
+- max_players
+- discussion_time
+- vote_time
+- night_time
+- reveal_dead_role
+- created_at
+
+## players
+
+- id
+- room_id
+- nickname
+- avatar_id
+- is_alive
+- is_host
+- is_connected
+- joined_at
+- last_seen_at
+
+## games
+
+- id
+- room_id
+- round_number
+- phase
+- phase_started_at
+- phase_ends_at
+- winner
+
+## player_roles
+
+- game_id
+- player_id
+- role
+- team
+
+## night_actions
+
+- game_id
+- round_number
+- actor_id
+- action_type
+- target_id
+- created_at
+
+## votes
+
+- game_id
+- round_number
+- voter_id
+- target_id
+- created_at
+
+## game_events
+
+- game_id
+- round_number
+- event_type
+- event_data
+- created_at
+
+Schema có thể được cải tiến nếu cần.
+
+---
+
+# XXXII. SECURITY — CỰC KỲ QUAN TRỌNG
+
+Không được tin client.
+
+Browser không được quyết định:
+
+- role;
+- alive/dead;
+- phase;
+- winner;
+- night result;
+- vote result.
+
+Client chỉ gửi intent/action.
+
+Server kiểm tra và quyết định.
+
+Role và night action là dữ liệu bí mật.
+
+Không bao giờ gửi toàn bộ `player_roles` xuống client.
+
+Không để người chơi mở DevTools/Network rồi xem role cả phòng.
+
+Sử dụng server-side authorization và Supabase RLS phù hợp.
+
+Người chơi chỉ nhận dữ liệu họ được phép biết.
+
+---
+
+# XXXIII. REALTIME
+
+Realtime cần xử lý:
+
+- player join;
+- player leave;
+- disconnect;
+- reconnect;
+- ready;
+- game start;
+- phase change;
+- night action completion;
+- vote completion;
+- elimination;
+- hunter action;
+- game over.
+
+Không broadcast dữ liệu bí mật không cần thiết.
+
+---
+
+# XXXIV. SOURCE ARCHITECTURE
+
+Có thể tổ chức tương tự:
+
+project-wolf/
+
+app/
+- page.tsx
+- tao-phong/
+- tham-gia/
+- phong/[roomCode]/
+- game/[roomCode]/
+
+components/
+- game/
+- player/
+- role/
+- lobby/
+- voting/
+- animation/
+- ui/
+
+lib/
+- supabase/
+- game-engine/
+- realtime/
+- security/
+
+game/
+- modes/
+  - classic/
+  - office/
+- roles/
+- rules/
+
+types/
+
+Không bắt buộc chính xác 100%, nhưng phải modular và dễ mở rộng.
+
+Không hard-code logic role rải rác khắp component React.
+
+Game engine phải tách khỏi presentation layer.
+
+---
+
+# XXXV. OFFICE MODE TƯƠNG LAI
+
+Không implement trong V1.
+
+Nhưng architecture phải cho phép:
+
+Classic Werewolf
+- Roles
+- Rules
+- Win Conditions
+
+Office Mode
+- Roles
+- Rules
+- Win Conditions
+
+Sau này có thể reskin:
+
+Ma Sói → Kẻ Phá Hoại  
+Tiên Tri → Auditor  
+Phù Thủy → HR  
+Bảo Vệ → IT Admin  
+Dân Làng → Nhân Viên
+
+Không để việc thêm mode này yêu cầu viết lại toàn bộ game.
+
+---
+
+# XXXVI. PHASE 1 — VIỆC CẦN LÀM NGAY
+
+BẮT ĐẦU BẰNG FRONTEND PROTOTYPE.
+
+Chưa cần Supabase ở bước đầu tiên.
+
+Sử dụng mock data để dựng toàn bộ trải nghiệm.
+
+Cần tạo:
+
+1. Design System
+2. Home
+3. Tạo phòng
+4. Tham gia phòng
+5. Lobby
+6. Role Reveal
+7. Night
+8. Morning
+9. Discussion
+10. Voting
+11. Vote Result
+12. Hunter Action
+13. Game Over
+14. Reconnect
+15. Error/Loading states
+
+Các màn hình phải có thể demo/chuyển qua nhau để kiểm tra toàn bộ game flow.
+
+Không chỉ tạo static mockup.
+
+Hãy tạo prototype có interaction thực tế.
+
+---
+
+# XXXVII. YÊU CẦU CHẤT LƯỢNG
+
+Không tạo giao diện generic.
+
+Không dùng layout dashboard SaaS.
+
+Không làm mọi thứ thành card chữ nhật đơn điệu.
+
+Không dùng gradient quá mức.
+
+Không dùng animation rẻ tiền.
+
+Không dùng emoji thay artwork/icon ở phiên bản hoàn thiện nếu có giải pháp tốt hơn.
+
+UI phải có hierarchy rõ.
+
+Typography đẹp.
+
+Spacing nhất quán.
+
+Contrast tốt.
+
+Hover/focus/active/disabled đầy đủ.
+
+Keyboard accessibility hợp lý.
+
+Responsive.
+
+Loading state.
+
+Empty state.
+
+Error state.
+
+Reconnect state.
+
+---
+
+# XXXVIII. PERFORMANCE
+
+Animation nhiều nhưng phải tối ưu.
+
+Ưu tiên:
+
+- transform;
+- opacity;
+- GPU-friendly animation.
+
+Tránh animation gây layout thrashing.
+
+Không tải asset quá nặng.
+
+Lazy load khi hợp lý.
+
+Background effect phải chạy tốt trên laptop văn phòng phổ thông.
+
+---
+
+# XXXIX. ROADMAP
+
+## Phase 1
+Frontend Prototype + Animation.
+
+## Phase 2
+Supabase database.
+
+## Phase 3
+Game Engine.
+
+## Phase 4
+Realtime multiplayer.
+
+## Phase 5
+Security/RLS.
+
+## Phase 6
+Reconnect & edge cases.
+
+## Phase 7
+Sound + polish + responsive.
+
+## Phase 8
+Testing.
+
+## Phase 9
+GitHub.
+
+## Phase 10
+Deploy Vercel.
+
+## Phase 11
+Beta test với nhóm người chơi thật.
+
+## Phase 12
+Office Mode và role mở rộng.
+
+---
+
+# XL. CÁCH THỰC HIỆN
+
+Không chỉ hướng dẫn tôi cách code.
+
+Hãy **trực tiếp xây dựng project**.
+
+Chủ động:
+
+- tạo file;
+- chỉnh file;
+- refactor;
+- chạy project;
+- kiểm tra lỗi;
+- sửa lỗi;
+- chạy build;
+- kiểm tra responsive;
+- kiểm tra interaction;
+- hoàn thiện source.
+
+Không dừng lại sau mỗi file để hỏi tôi có muốn tiếp tục hay không.
+
+Có thể tự quyết định những chi tiết kỹ thuật nhỏ nếu chúng không làm thay đổi gameplay.
+
+Nếu gặp quyết định ảnh hưởng lớn tới gameplay hoặc kiến trúc, hãy giải thích ngắn gọn trước khi thay đổi.
+
+---
+
+# XLI. DEFINITION OF DONE — PHASE 1
+
+Phase 1 chỉ được xem là hoàn thành khi:
+
+- project chạy được;
+- không có build error;
+- toàn bộ giao diện tiếng Việt;
+- Home hoàn chỉnh;
+- Create Room hoàn chỉnh;
+- Join Room hoàn chỉnh;
+- Lobby hoàn chỉnh;
+- Role Reveal hoạt động;
+- Night UI hoạt động;
+- Morning UI hoạt động;
+- Discussion hoạt động;
+- Voting interaction hoạt động;
+- Vote Result hoạt động;
+- Game Over hoạt động;
+- có mock gameplay flow;
+- animation hoạt động;
+- desktop đẹp;
+- responsive cơ bản hoạt động;
+- source sạch và có cấu trúc;
+- có README hướng dẫn chạy project.
+
+Sau khi hoàn thành Phase 1:
+
+Hãy cho tôi xem kết quả, mô tả những gì đã hoàn thành, những gì đang dùng mock data và những phần sẽ được nối Supabase ở Phase 2.
+
+# BẮT ĐẦU
+
+Hãy bắt đầu thực hiện **PROJECT WOLF — PHASE 1: FRONTEND PROTOTYPE** ngay bây giờ.
+
+Ưu tiên đầu tiên:
+
+**Trải nghiệm thị giác + Game Flow + Animation + chất lượng source.**
+
+Không cần hỏi lại những thông tin đã được định nghĩa trong Master Prompt này.
